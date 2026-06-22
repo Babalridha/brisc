@@ -1,0 +1,169 @@
+---
+import Layout from '../components/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const categories = [
+  {
+    name: "Application and Pre-Course",
+    items: [
+      { q: "What does the course fee include?", a: "The course fee includes accommodation, meals, classes, activities and all local transport. It excludes visas and flights – these should be arranged individually." },
+      { q: "Do I have to book my own flights and arrange my own visa?", a: "Yes, you will need to book your own flights and arrange your own visa. Assistance may be available or you may be put in touch with a travel agent. Do not make arrangements until confirmed." },
+      { q: "Arrive later or leave earlier?", a: "No. By applying, you commit to attending the full duration. Once confirmed, you will receive arrival/departure guidelines." },
+      { q: "Couples special offers?", a: "Yes. Couples are offered a private room instead of shared accommodation. No financial discount as private rooms cost more." },
+      { q: "Scholarships or discounts?", a: "No set discounts. In genuine financial difficulty, installment plans may be arranged." }
+    ]
+  },
+  {
+    name: "About the Course",
+    items: [
+      { q: "Is the course held fully in Qum?", a: "The first two weeks are held in Qom, with one or two day trips to Tehran. The final few days are in Mashhad." },
+      { q: "Childcare facilities?", a: "Depends on factors like total need. Applicants should mention this in the form; organisers will respond after processing." },
+      { q: "Option for attending classes only?", a: "No. The course must be attended in full as all activities are linked." },
+      { q: "Visit shrines whenever we want?", a: "In Qom, visits are scheduled. In Mashhad, the timetable is more flexible for individual visits." },
+      { q: "What is a typical day like?", a: "Morning classes, afternoon activity/outing, and evening Mubahatha. Schedule is packed with events." }
+    ]
+  }
+];
+---
+
+<Layout title="FAQs | Bab al-Ridha Intensive">
+  <div class="pt-32 pb-24 bg-[#fcfbf7]">
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-24">
+        <span class="text-[#dcd6be] uppercase tracking-[0.4em] text-[10px] font-extrabold block mb-6">Clarifying the Path</span>
+        <h1 class="text-6xl md:text-8xl font-serif text-[#134503] mb-8 font-bold italic">Common Inquiries</h1>
+        <p class="text-gray-500 max-w-xl mx-auto text-lg font-medium leading-relaxed mb-16">
+          Detailed answers regarding our methodology, travel logistics, and the spiritual environment of Qom.
+        </p>
+        
+        <!-- Search bar -->
+        <div class="max-w-3xl mx-auto relative mb-16">
+          <div class="absolute left-8 top-1/2 -translate-y-1/2 text-[#dcd6be]">
+            <Icon name="Search" size={24} />
+          </div>
+          <input 
+            id="faq-search"
+            type="text" 
+            placeholder="Search for visas, fees, schedule..." 
+            class="w-full pl-20 pr-10 py-7 bg-white shadow-2xl shadow-[#dcd6be]/20 border border-[#dcd6be]/10 text-sm font-medium focus:ring-4 focus:ring-[#134503]/5 rounded-[2.5rem] outline-none"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <!-- FAQ list -->
+        <div class="lg:col-span-2 space-y-12">
+          {categories.map((cat, catIdx) => (
+            <div data-faq-category class="text-left">
+               <h2 class="text-[#134503] font-extrabold uppercase text-xs tracking-[0.3em] mb-8 border-b-2 border-[#dcd6be]/20 pb-4">{cat.name}</h2>
+               <div class="space-y-6">
+                  {cat.items.map((item, itemIdx) => {
+                    const id = `${catIdx}-${itemIdx}`;
+                    return (
+                      <div data-faq-id={id} class="bg-white border border-[#dcd6be]/20 rounded-[2.5rem] overflow-hidden shadow-xl shadow-[#dcd6be]/5 group">
+                        <button 
+                          data-faq-trigger
+                          class="w-full px-10 py-8 flex items-center justify-between text-left"
+                        >
+                          <span data-faq-q class="text-[#134503] font-extrabold text-sm uppercase tracking-widest">{item.q}</span>
+                          <div class="faq-chevron-bg p-2 rounded-full transition-colors bg-[#dcd6be]/10 text-[#dcd6be]">
+                            <Icon name="ChevronDown" class="faq-chevron transition-transform duration-500" size={20} />
+                          </div>
+                        </button>
+                        
+                        <div data-faq-answer class="px-10 pb-10 hidden">
+                          <p data-faq-a class="text-gray-500 text-sm leading-relaxed border-t border-gray-50 pt-8 font-medium italic">
+                            "{item.a}"
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+               </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-10 text-left">
+          <div class="bg-[#dcd6be] p-10 rounded-[3rem] shadow-2xl text-[#134503] relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#134503]/5 rounded-full"></div>
+            <h3 class="text-2xl font-serif italic font-bold mb-6">Regional Coordinators</h3>
+            <p class="text-[#134503]/60 text-xs font-bold leading-relaxed mb-10 uppercase tracking-widest">For regional instructions, please contact your local representative.</p>
+            <a href="https://wa.me/989337254681" target="_blank" rel="noopener noreferrer" class="w-full bg-[#134503] text-[#dcd6be] flex items-center justify-center gap-3 py-5 rounded-full font-extrabold text-[10px] uppercase tracking-[0.3em] hover:scale-105 transition-all shadow-xl">
+              <Icon name="MessageCircle" size={18} /> WhatsApp Contacts
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // Accordion Toggle
+  const faqCards = document.querySelectorAll('[data-faq-id]');
+  
+  faqCards.forEach((card) => {
+    const trigger = card.querySelector('[data-faq-trigger]');
+    const answer = card.querySelector('[data-faq-answer]');
+    const chevronBg = card.querySelector('.faq-chevron-bg');
+    const chevron = card.querySelector('.faq-chevron');
+
+    trigger?.addEventListener('click', () => {
+      const isHidden = answer?.classList.contains('hidden');
+
+      // Collapse all answers
+      faqCards.forEach((otherCard) => {
+        const otherAnswer = otherCard.querySelector('[data-faq-answer]');
+        const otherChevronBg = otherCard.querySelector('.faq-chevron-bg');
+        const otherChevron = otherCard.querySelector('.faq-chevron');
+        
+        otherAnswer?.classList.add('hidden');
+        otherChevronBg?.classList.add('bg-[#dcd6be]/10', 'text-[#dcd6be]');
+        otherChevronBg?.classList.remove('bg-[#134503]', 'text-[#dcd6be]');
+        otherChevron?.classList.remove('rotate-180');
+      });
+
+      // Toggle clicked answer
+      if (isHidden) {
+        answer?.classList.remove('hidden');
+        chevronBg?.classList.remove('bg-[#dcd6be]/10');
+        chevronBg?.classList.add('bg-[#134503]', 'text-[#dcd6be]');
+        chevron?.classList.add('rotate-180');
+      }
+    });
+  });
+
+  // Search Filter
+  const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+  const categories = document.querySelectorAll('[data-faq-category]');
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+
+    categories.forEach((cat) => {
+      const items = cat.querySelectorAll('[data-faq-id]');
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const qText = item.querySelector('[data-faq-q]')?.textContent?.toLowerCase() || '';
+        const aText = item.querySelector('[data-faq-a]')?.textContent?.toLowerCase() || '';
+
+        if (qText.includes(query) || aText.includes(query)) {
+          item.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+
+      // Hide the entire category if no questions are visible
+      if (visibleCount > 0) {
+        cat.classList.remove('hidden');
+      } else {
+        cat.classList.add('hidden');
+      }
+    });
+  });
+</script>

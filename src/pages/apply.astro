@@ -1,0 +1,196 @@
+---
+import Layout from '../components/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const reps = [
+  { region: "CANADA", name: "Hossein Mojtahedi / Fatema Khimji", phone: "+1 (416) 802 0260 / +1 (647) 876 0635" },
+  { region: "KENYA", name: "Raheel Khimji", phone: "+254 727 888788" },
+  { region: "TANZANIA", name: "Alina Remtula", phone: "+255 784 350 000" },
+  { region: "UAE / GLOBAL", name: "Muslim Bhojani", phone: "+98 933 7254681" },
+  { region: "UK", name: "Dr. Mohamedabbas Jaffer", phone: "+44 7517 402994" }
+];
+
+const policies = [
+  { title: "ARRIVALS", desc: "Participants must arrive on time for the opening ceremony and stay until the closing ceremony." },
+  { title: "ATTENDANCE", desc: "All educational sessions, trips and activities must be attended punctually. Records will be taken." },
+  { title: "DRESS CODE", desc: "Brothers: Long-sleeved shirts/trousers. Sisters: Dark scarf, black abaya, socks, Iranian/Arab chador, no make-up." },
+  { title: "MOBILE & INTERNET", desc: "Phones allowed but prohibited during sessions. Local SIMs provided for personal usage." },
+  { title: "MEDICAL", desc: "Standard emergencies covered. Participants should bring frequently used medications." }
+];
+
+const tabs = ['criteria', 'policies', 'reps', 'form'];
+---
+
+<Layout title="Apply | Bab al-Ridha Intensive">
+  <div class="pt-32 pb-24 bg-[#fcfbf7] min-h-screen">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h1 class="text-6xl md:text-8xl font-serif text-[#134503] mb-8 font-bold italic">Join the Family</h1>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg font-medium">Please review the criteria and policies before submitting your application.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        {tabs.map((tab) => (
+          <button 
+            data-apply-tab={tab}
+            class={`px-10 py-4 rounded-full text-[10px] uppercase font-extrabold tracking-[0.3em] transition-all shadow-sm ${
+              tab === 'criteria' ? 'bg-[#134503] text-[#dcd6be]' : 'bg-[#dcd6be]/20 text-[#134503]'
+            }`}
+          >
+            {tab.replace('reps', 'Representatives').replace('form', 'Application Form')}
+          </button>
+        ))}
+      </div>
+
+      <!-- Content Container -->
+      <div class="bg-white rounded-[4rem] shadow-2xl p-10 md:p-20 mb-12 border border-[#dcd6be]/10 relative overflow-hidden text-left">
+        
+        <!-- Criteria Tab -->
+        <div data-tab-content="criteria" class="transition-opacity duration-300">
+          <h2 class="text-4xl font-serif text-[#134503] mb-12 font-bold italic">Application Criteria</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+             <div>
+                <h4 class="text-[10px] uppercase font-extrabold text-[#dcd6be] tracking-[0.4em] mb-6">Necessary Requirements</h4>
+                <ul class="space-y-4">
+                   {[
+                     "Thirst and eagerness for pure Islamic knowledge.",
+                     "Strong interest in working with youths.",
+                     "Ability to learn and work as part of a team.",
+                     "Aged between 18 to 35 years old"
+                   ].map((item) => (
+                     <li class="flex gap-4 items-start text-[#134503] font-medium leading-relaxed">
+                        <div class="w-2 h-2 bg-[#dcd6be] rounded-full mt-2 shrink-0"></div>
+                        {item}
+                     </li>
+                   ))}
+                </ul>
+             </div>
+             <div>
+                <h4 class="text-[10px] uppercase font-extrabold text-[#dcd6be] tracking-[0.4em] mb-6">Recommended Qualities</h4>
+                <ul class="space-y-4">
+                   {[
+                     "Previous experience in community activity/teaching.",
+                     "Strong Islamic vision and high aspirations.",
+                     "Strong academic background.",
+                     "Group applications (family, friends, co-workers)"
+                   ].map((item) => (
+                     <li class="flex gap-4 items-start text-[#134503]/70 font-medium leading-relaxed italic">
+                        <div class="w-2 h-2 bg-[#134503]/20 rounded-full mt-2 shrink-0"></div>
+                        {item}
+                     </li>
+                   ))}
+                </ul>
+             </div>
+          </div>
+          <div class="mt-16 p-8 bg-[#134503]/5 rounded-3xl border border-[#134503]/10">
+             <p class="text-sm text-[#134503]/70 italic">Note: The course is open to both brothers and sisters. Emphasis is on intensive educational activities.</p>
+          </div>
+        </div>
+
+        <!-- Policies Tab -->
+        <div data-tab-content="policies" class="hidden transition-opacity duration-300 grid grid-cols-1 md:grid-cols-2 gap-10">
+          {policies.map((p) => (
+            <div class="p-8 bg-[#fcfbf7] rounded-[2.5rem] border border-[#dcd6be]/20">
+               <h4 class="text-[10px] font-extrabold text-[#dcd6be] uppercase tracking-widest mb-4">{p.title}</h4>
+               <p class="text-[#134503] font-medium text-sm leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+          <div class="md:col-span-2 p-8 bg-[#dcd6be]/20 rounded-[2.5rem] border border-[#dcd6be]/40">
+             <h4 class="text-[10px] font-extrabold text-[#134503] uppercase tracking-widest mb-4">WINTER NOTE</h4>
+             <p class="text-[#134503] font-medium text-sm italic">"Temperatures can go below zero degrees Celsius. Bring warm clothes, hiking shoes, and swimming gear."</p>
+          </div>
+        </div>
+
+        <!-- Representatives Tab -->
+        <div data-tab-content="reps" class="hidden transition-opacity duration-300">
+          <h2 class="text-4xl font-serif text-[#134503] mb-12 font-bold italic">Regional Representatives</h2>
+          <div class="overflow-x-auto">
+             <table class="w-full text-left">
+                <thead>
+                   <tr class="border-b-2 border-[#dcd6be]/20">
+                      <th class="py-6 text-[10px] uppercase tracking-widest text-[#dcd6be] font-extrabold">Region</th>
+                      <th class="py-6 text-[10px] uppercase tracking-widest text-[#dcd6be] font-extrabold">Coordinator</th>
+                      <th class="py-6 text-[10px] uppercase tracking-widest text-[#dcd6be] font-extrabold">WhatsApp</th>
+                   </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
+                   {reps.map((rep) => (
+                     <tr class="hover:bg-gray-50/50 transition-colors">
+                        <td class="py-8 font-extrabold text-[#134503] text-sm tracking-widest">{rep.region}</td>
+                        <td class="py-8 font-bold text-[#134503]/80 text-sm italic">{rep.name}</td>
+                        <td class="py-8 font-bold text-[#134503] text-sm flex items-center gap-3">
+                           <div class="w-8 h-8 bg-[#dcd6be]/40 rounded-full flex items-center justify-center"><Icon name="Phone" size={14}/></div>
+                           {rep.phone}
+                        </td>
+                     </tr>
+                   ))}
+                </tbody>
+             </table>
+          </div>
+        </div>
+
+        <!-- Application Form Tab -->
+        <div data-tab-content="form" class="hidden transition-opacity duration-300 text-center py-20">
+           <div class="max-w-xl mx-auto">
+              <div class="w-20 h-20 bg-[#dcd6be]/20 rounded-full flex items-center justify-center text-[#134503] mx-auto mb-8">
+                 <Icon name="Info" size={40} />
+              </div>
+              <h2 class="text-4xl font-serif text-[#134503] mb-8 font-bold italic">Ready to Apply?</h2>
+              <p class="text-gray-500 mb-12 font-medium">Clicking below will open our secure external application portal. Please ensure you have all personal and spiritual history details ready.</p>
+              <a href="https://brisc.babalridha.com" target="_blank" rel="noopener noreferrer" class="bg-[#134503] text-[#dcd6be] px-16 py-6 rounded-full font-extrabold uppercase text-xs tracking-[0.4em] shadow-2xl hover:scale-105 transition-all inline-block">
+                 Open Secure Form
+              </a>
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const tabButtons = document.querySelectorAll('[data-apply-tab]');
+  const tabContents = document.querySelectorAll('[data-tab-content]');
+
+  function switchTab(targetTab: string) {
+    tabButtons.forEach((btn) => {
+      const tab = btn.getAttribute('data-apply-tab');
+      if (tab === targetTab) {
+        btn.classList.add('bg-[#134503]', 'text-[#dcd6be]');
+        btn.classList.remove('bg-[#dcd6be]/20', 'text-[#134503]');
+      } else {
+        btn.classList.remove('bg-[#134503]', 'text-[#dcd6be]');
+        btn.classList.add('bg-[#dcd6be]/20', 'text-[#134503]');
+      }
+    });
+
+    tabContents.forEach((content) => {
+      const tab = content.getAttribute('data-tab-content');
+      if (tab === targetTab) {
+        content.classList.remove('hidden');
+        if (targetTab === 'policies') {
+          content.classList.add('grid');
+        }
+      } else {
+        content.classList.add('hidden');
+        if (tab === 'policies') {
+          content.classList.remove('grid');
+        }
+      }
+    });
+  }
+
+  // Set default tab on load
+  switchTab('criteria');
+
+  // Attach event listeners
+  tabButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const tab = btn.getAttribute('data-apply-tab');
+      if (tab) {
+        switchTab(tab);
+      }
+    });
+  });
+</script>

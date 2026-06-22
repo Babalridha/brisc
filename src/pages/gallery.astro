@@ -1,0 +1,132 @@
+---
+import Layout from '../components/Layout.astro';
+import { GALLERY } from '../constants';
+
+const categoryDetails: Record<string, string> = {
+  'Pre-BRisc preparations': 'Mentoring is an important aspect of BRisc, and a lot of effort goes into making the mentoring scheme a successful model. Before the start of the course, new mentors got together to get briefed about their roles and learn from previous mentors. A lot of preparation is done behind the scenes, on laptops and long (sometimes late-night) meetings.',
+  'Opening Ceremony': 'This is where it all started! The opening ceremony was held in the first night. All participants, mentors, and teachers gathered in the big hall. Guest scholars blessed us with their presence. It was about introducing the course and starting the bonding which would continue throughout the course.',
+  'Classes and Workshops': 'The course is primarily to gain knowledge (nearly 50 hours!). We aimed to open the door to profound Islamic knowledge in important fields, helping participants acquire a correct Islamic worldview and a balanced approach to daily life.',
+  'Discussions and Youth Project': 'Learning was kept interactive with workshops, group discussions, and team-building activities. One of the important parts was the youth project, allowing participants to think outside the box and implement course material on a practical project.',
+  'Visits to Scholars': 'Amazing opportunities to meet great scholars: Ayatullah Jawadi Amuli (Marja, philosopher), Ayatullah Tahriri (spiritual teacher), Agha Saberi (Hawzah teacher), Agha Panahian (famous scholar), and Agha Amini (Hawzah counselor).',
+  'Spiritual Trips': 'Highlights include spiritual boosts from the ziarat of Imam Ridha (as) and Hazrat Fatimah Ma’sumah (sa). Programs included Dua Kumayl, Dua Tawassul in Masjid Jamkaran, and visiting Sultan Ali in Mashhade Ardehal.',
+  'Educational Trips': 'Lots of visits and trips to complement classroom learning, visiting eye-opening and inspirational institutions and museums.',
+  'Sports and Leisure': 'Intensive but not all studying! Loads of fun with sports activities and trips, including BBQ day trips and waterfalls even in the freezing weather!'
+};
+
+const categories = Object.keys(categoryDetails);
+const defaultCategory = 'Pre-BRisc preparations';
+---
+
+<Layout title="Gallery | Bab al-Ridha Intensive">
+  <div class="pt-32 pb-24 bg-[#fcfbf7]">
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="text-[#dcd6be] uppercase tracking-[0.5em] text-[10px] font-extrabold block mb-6">A Sacred Journey Captured</span>
+        <h1 class="text-6xl md:text-8xl font-serif text-[#134503] mb-8 font-bold italic leading-tight">The Experience</h1>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed mb-16">
+          Explore the different facets of the Bab al-Ridha Intensive Short Course through our visual archives.
+        </p>
+
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-3 border-y border-[#dcd6be]/20 py-8 mb-12">
+          {categories.map((cat) => (
+            <button 
+              data-category-btn={cat}
+              class={`text-[9px] md:text-[10px] uppercase font-extrabold tracking-[0.2em] md:tracking-[0.3em] transition-all relative px-4 py-2 rounded-full border ${
+                cat === defaultCategory 
+                  ? 'bg-[#134503] text-[#dcd6be] border-[#134503]' 
+                  : 'text-[#134503]/70 border-[#134503]/20 hover:border-[#134503] hover:text-[#134503]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+        
+        <!-- Active Category Info -->
+        <div class="max-w-4xl mx-auto bg-white p-10 rounded-[3rem] shadow-xl border border-[#dcd6be]/10 transition-all">
+          <h3 id="active-category-title" class="text-2xl font-serif font-bold text-[#134503] mb-4 italic">{defaultCategory}</h3>
+          <p id="active-category-desc" class="text-gray-500 leading-relaxed font-medium text-sm md:text-base">{categoryDetails[defaultCategory]}</p>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="columns-1 md:columns-2 lg:columns-3 gap-10 space-y-10 min-h-[400px]">
+        {GALLERY.map((item) => (
+          <div 
+            data-item-category={item.category}
+            class="relative group overflow-hidden break-inside-avoid shadow-2xl rounded-[3rem] cursor-pointer"
+          >
+            <img src={item.url} alt={item.title} class="w-full h-auto grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#134503]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-10 text-left">
+              <h4 class="text-white font-serif text-2xl italic font-bold leading-tight">{item.title}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom Call to Action -->
+      <div class="mt-40 bg-[#dcd6be] p-16 md:p-24 rounded-[4rem] text-center shadow-inner">
+         <h2 class="text-4xl md:text-7xl font-serif text-[#134503] mb-10 font-bold italic">Capture Your Own<br /> Chapter</h2>
+         <p class="text-[#134503]/60 text-lg font-medium mb-16 max-w-xl mx-auto">Limited space available for the next intensive. Secure your opportunity to experience the Holy City.</p>
+         <div class="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="/apply" class="bg-[#134503] text-[#dcd6be] px-14 py-5 rounded-full font-extrabold uppercase text-xs tracking-[0.3em] hover:scale-105 transition-all shadow-xl inline-block">Apply Now</a>
+         </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script define:vars={{ categoryDetails }}>
+  // Category switching client-side code
+  const buttons = document.querySelectorAll('[data-category-btn]');
+  const items = document.querySelectorAll('[data-item-category]');
+  const titleEl = document.getElementById('active-category-title');
+  const descEl = document.getElementById('active-category-desc');
+
+  function selectCategory(category) {
+    // Update button styling
+    buttons.forEach((btn) => {
+      const cat = btn.getAttribute('data-category-btn');
+      if (cat === category) {
+        btn.classList.add('bg-[#134503]', 'text-[#dcd6be]', 'border-[#134503]');
+        btn.classList.remove('text-[#134503]/70', 'border-[#134503]/20', 'hover:border-[#134503]', 'hover:text-[#134503]');
+      } else {
+        btn.classList.remove('bg-[#134503]', 'text-[#dcd6be]', 'border-[#134503]');
+        btn.classList.add('text-[#134503]/70', 'border-[#134503]/20', 'hover:border-[#134503]', 'hover:text-[#134503]');
+      }
+    });
+
+    // Update active category text elements
+    if (titleEl && descEl) {
+      titleEl.textContent = category;
+      descEl.textContent = categoryDetails[category] || '';
+    }
+
+    // Filter gallery images
+    items.forEach((item) => {
+      const itemCat = item.getAttribute('data-item-category');
+      if (itemCat === category) {
+        item.classList.remove('hidden');
+        // Re-trigger animation
+        item.classList.add('animate-in', 'zoom-in-95', 'duration-500');
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('animate-in', 'zoom-in-95', 'duration-500');
+      }
+    });
+  }
+
+  // Set default selection
+  selectCategory('Pre-BRisc preparations');
+
+  // Add click handlers
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-category-btn');
+      if (cat) {
+        selectCategory(cat);
+      }
+    });
+  });
+</script>

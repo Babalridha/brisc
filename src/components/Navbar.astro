@@ -1,0 +1,162 @@
+---
+import Icon from './Icon.astro';
+
+const LOGO_URL = "https://brisc.babalridha.com/wp-content/uploads/2018/03/BRI_Logo-1.png";
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '/index.html' || pathname === '';
+
+const navLinks = [
+  { name: 'About', path: '/about' },
+  { name: 'Curriculum', path: '/curriculum' },
+  { name: 'Testimonials', path: '/testimonials' },
+  { name: 'Gallery', path: '/gallery' },
+  { name: 'FAQs', path: '/faq' },
+];
+---
+
+<nav id="navbar" class={`fixed w-full z-50 transition-all duration-300 ${!isHome ? 'bg-[#dcd6be]/95 backdrop-blur-md py-3 shadow-lg' : 'bg-transparent py-6'}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center">
+      <a href="/" class="flex items-center gap-4">
+        <img src={LOGO_URL} alt="Bab al-Ridha" class="h-12 w-auto object-contain rounded-lg" />
+        <div class="flex flex-col">
+          <span id="brand-title" class={`text-lg font-bold tracking-tight transition-colors duration-300 ${!isHome ? 'text-[#134503]' : 'text-white'}`}>Bab al-Ridha</span>
+          <span id="brand-sub" class={`text-[10px] tracking-widest font-semibold uppercase transition-colors duration-300 ${!isHome ? 'text-[#134503]/70' : 'text-[#dcd6be]'}`}>Intensive Short Course</span>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        {navLinks.map((link) => (
+          <a 
+            href={link.path} 
+            class={`nav-link-text text-sm font-semibold tracking-wide uppercase transition-colors hover:opacity-70 ${!isHome ? 'text-[#134503]' : 'text-white'}`}
+          >
+            {link.name}
+          </a>
+        ))}
+        <a 
+          href="/apply" 
+          class="bg-[#134503] text-[#dcd6be] px-8 py-2.5 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-105 transition-all shadow-md"
+        >
+          Apply Now
+        </a>
+      </div>
+
+      <button id="navbar-toggle" class={`${!isHome ? 'text-[#134503]' : 'text-white'} md:hidden p-2`}>
+        <div id="menu-icon">
+          <Icon name="Menu" size={28} />
+        </div>
+        <div id="close-icon" class="hidden">
+          <Icon name="X" size={28} />
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu with slide animation -->
+  <div id="mobile-menu" class="md:hidden absolute top-full left-0 w-full bg-[#dcd6be] border-t border-[#134503]/10 shadow-xl overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 py-0">
+    <div class="px-6 flex flex-col gap-6">
+      {navLinks.map((link) => (
+        <a 
+          href={link.path} 
+          class="mobile-nav-link text-[#134503] text-lg font-bold border-b border-[#134503]/10 pb-2 hover:pl-2 transition-all"
+        >
+          {link.name}
+        </a>
+      ))}
+      <a 
+        href="/apply" 
+        class="bg-[#134503] text-[#dcd6be] text-center py-4 rounded-2xl font-bold hover:scale-[0.98] transition-transform"
+      >
+        Apply Now
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const nav = document.getElementById('navbar');
+  const toggleBtn = document.getElementById('navbar-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navLinksText = document.querySelectorAll('.nav-link-text');
+  const brandTitle = document.getElementById('brand-title');
+  const brandSub = document.getElementById('brand-sub');
+
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  const isHome = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+
+  function updateNavbar() {
+    const isScrolled = window.scrollY > 50;
+    
+    if (isScrolled || !isHome) {
+      nav?.classList.add('bg-[#dcd6be]/95', 'backdrop-blur-md', 'py-3', 'shadow-lg');
+      nav?.classList.remove('bg-transparent', 'py-6');
+      
+      toggleBtn?.classList.add('text-[#134503]');
+      toggleBtn?.classList.remove('text-white');
+      
+      brandTitle?.classList.add('text-[#134503]');
+      brandTitle?.classList.remove('text-white');
+      
+      brandSub?.classList.add('text-[#134503]/70');
+      brandSub?.classList.remove('text-[#dcd6be]');
+
+      navLinksText.forEach((link) => {
+        link.classList.add('text-[#134503]');
+        link.classList.remove('text-white');
+      });
+    } else {
+      nav?.classList.remove('bg-[#dcd6be]/95', 'backdrop-blur-md', 'py-3', 'shadow-lg');
+      nav?.classList.add('bg-transparent', 'py-6');
+      
+      toggleBtn?.classList.remove('text-[#134503]');
+      toggleBtn?.classList.add('text-white');
+      
+      brandTitle?.classList.remove('text-[#134503]');
+      brandTitle?.classList.add('text-white');
+      
+      brandSub?.classList.remove('text-[#134503]/70');
+      brandSub?.classList.add('text-[#dcd6be]');
+
+      navLinksText.forEach((link) => {
+        link.classList.remove('text-[#134503]');
+        link.classList.add('text-white');
+      });
+    }
+  }
+
+  // Scroll listener
+  window.addEventListener('scroll', updateNavbar);
+  // Initialize
+  updateNavbar();
+
+  // Mobile menu toggle
+  toggleBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('max-h-[500px]');
+    if (isOpen) {
+      mobileMenu?.classList.remove('max-h-[500px]', 'opacity-100', 'py-6');
+      mobileMenu?.classList.add('max-h-0', 'opacity-0', 'py-0');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    } else {
+      mobileMenu?.classList.add('max-h-[500px]', 'opacity-100', 'py-6');
+      mobileMenu?.classList.remove('max-h-0', 'opacity-0', 'py-0');
+      menuIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('max-h-[500px]', 'opacity-100', 'py-6');
+      mobileMenu?.classList.add('max-h-0', 'opacity-0', 'py-0');
+      menuIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    });
+  });
+</script>

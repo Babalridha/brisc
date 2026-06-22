@@ -1,0 +1,107 @@
+---
+import Layout from '../components/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const infoClips = [
+  { title: "Ziyarat in Mashhad", duration: "1:24", color: "#134503" },
+  { title: "Intellectual Rigor", duration: "2:05", color: "#dcd6be" },
+  { title: "Brotherhood & Fun", duration: "1:45", color: "#134503" },
+  { title: "Mentor Perspective", duration: "3:12", color: "#dcd6be" }
+];
+---
+
+<Layout title="About Us | Bab al-Ridha Intensive">
+  <div class="pt-24 md:pt-32 pb-24 bg-[#fcfbf7] overflow-hidden">
+    <section class="max-w-7xl mx-auto px-4 w-full">
+      
+      <!-- Missions & Visions Section -->
+      <div class="flex flex-col md:flex-row items-center gap-12 md:gap-24 mb-24 md:mb-40">
+        <div class="w-full md:w-1/2 text-left">
+          <span class="text-[#dcd6be] uppercase tracking-[0.5em] text-[10px] font-extrabold block mb-6">Mission & Vision</span>
+          <h1 class="text-4xl md:text-8xl font-serif text-[#134503] mb-6 md:mb-10 font-bold italic leading-tight">Visions and Objectives</h1>
+          <p class="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-8">
+            Bab al-Ridha Intensive Short Course provides a different type of exposure to the youth with regards to Islamic knowledge, spirituality, and fun.
+          </p>
+          <p class="text-gray-500 leading-relaxed mb-10 md:mb-12 font-medium italic border-l-4 border-[#dcd6be] pl-6 md:pl-8">
+            The content is particularly relevant for today’s youths to meet the practical challenges they face on a daily basis, as well as the ideological challenges from the media.
+          </p>
+          <div class="flex items-center gap-8 md:gap-12">
+             <div>
+                <span class="text-3xl md:text-5xl font-extrabold text-[#134503] block mb-2 tracking-tighter">13 Years</span>
+                <span class="text-[10px] uppercase font-extrabold text-[#dcd6be] tracking-[0.3em]">of Legacy</span>
+             </div>
+             <div class="w-1 h-12 md:w-1.5 md:h-16 bg-[#dcd6be]/20 rounded-full"></div>
+             <div>
+                <span class="text-3xl md:text-5xl font-extrabold text-[#134503] block mb-2 tracking-tighter">Global</span>
+                <span class="text-[10px] uppercase font-extrabold text-[#dcd6be] tracking-[0.3em]">Youth Reach</span>
+             </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 mt-8 md:mt-0">
+           <div class="relative group max-w-sm md:max-w-none mx-auto">
+              <img src="https://brisc.babalridha.com/wp-content/uploads/2024/05/Brisc-13-4web.png" class="w-full aspect-[4/5] object-cover grayscale rounded-[3rem] md:rounded-[4rem] group-hover:grayscale-0 transition-all duration-1000 shadow-2xl" alt="Scholarship" />
+              <div class="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-48 h-48 md:w-72 md:h-72 border-[8px] md:border-[12px] border-[#dcd6be] -z-10 rounded-[3rem] md:rounded-[4rem] opacity-30"></div>
+           </div>
+        </div>
+      </div>
+
+      <!-- Why & Background Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-24 md:mb-40 text-left">
+         <div class="bg-white p-10 md:p-20 rounded-[3rem] md:rounded-[4rem] shadow-xl border border-[#dcd6be]/10">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#134503] mb-6 md:mb-8 italic underline decoration-[#dcd6be] decoration-4 underline-offset-8">Why BRisc?</h2>
+            <p class="text-gray-500 font-medium leading-relaxed mb-6 text-sm md:text-base">
+              Through well-structured classes, we provide essential knowledge in the most important topics of Islam. Mentors facilitate this by initiating thought-provoking discussions and sharing their own experiences.
+            </p>
+            <p class="text-gray-500 font-medium leading-relaxed italic text-sm md:text-base">
+              Halal fun is also an essential part of the course, and different recreational and sporting activities are arranged for a very enjoyable experience!
+            </p>
+         </div>
+         <div class="bg-[#134503] p-10 md:p-20 rounded-[3rem] md:rounded-[4rem] shadow-xl text-[#dcd6be]">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-6 md:mb-8 italic underline decoration-white/20 decoration-4 underline-offset-8">Our Background</h2>
+            <p class="text-[#dcd6be]/70 font-medium leading-relaxed mb-6 text-sm md:text-base">
+              BRisc was an initiative taken by Hawzah students in 2013. For 6 years, we delivered winter intensives for youth in East Africa, UK, Canada, Australia, and Dubai.
+            </p>
+            <p class="text-[#dcd6be]/70 font-medium leading-relaxed text-sm md:text-base">
+              This led to the establishment of the Bab al-Ridha Institute, dedicated to online learning, research, and textbook creation for Islamic content.
+            </p>
+         </div>
+      </div>
+
+      <!-- Director Note / Team Section -->
+      <div class="bg-[#dcd6be] text-[#134503] p-10 md:p-32 rounded-[3.5rem] md:rounded-[5rem] shadow-inner relative overflow-hidden mb-24 md:mb-40 text-center">
+         <div class="absolute top-0 left-0 w-48 h-48 md:w-64 md:h-64 bg-white/5 rounded-br-[15rem] -z-0"></div>
+         <div class="max-w-4xl mx-auto relative z-10">
+            <span class="text-[#134503]/40 uppercase tracking-[0.5em] text-[10px] font-extrabold block mb-6 md:mb-10">The Team</span>
+            <h2 class="text-3xl md:text-7xl font-serif italic mb-10 md:mb-14 font-bold">Hawza Student Organisers</h2>
+            <p class="text-[#134503]/80 text-xl md:text-2xl font-medium leading-relaxed mb-10 md:mb-16 italic font-serif">
+              "Our team consists of students who have seen regions around the world and understand community challenges. We prioritize consultation with senior scholars and feedbacks from reliable teachers."
+            </p>
+            <div class="w-16 h-1 md:w-24 md:h-2 bg-[#134503]/10 mx-auto mb-10 rounded-full"></div>
+            <h4 class="text-2xl md:text-3xl font-serif font-bold italic">Bab al-Ridha Institute</h4>
+            <span class="text-[10px] uppercase tracking-[0.5em] text-[#134503]/50 font-extrabold">Serving the Global Ummah</span>
+         </div>
+      </div>
+
+      <!-- Info Clips Section -->
+      <div class="mb-24 md:mb-40 text-center">
+         <h2 class="text-4xl md:text-7xl font-serif text-[#134503] mb-12 md:mb-16 font-bold italic">Info Clips</h2>
+         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {infoClips.map((clip) => (
+              <div class="group cursor-pointer">
+                 <div class="relative aspect-video rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl mb-4 md:mb-6 bg-gray-200">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+                       <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center text-[#134503] group-hover:scale-110 transition-transform shadow-lg">
+                          <Icon name="Play" class="w-5 h-5 md:w-6 md:h-6 ml-1 text-[#134503]" fill="currentColor"/>
+                       </div>
+                    </div>
+                    <div class="absolute bottom-4 right-6 bg-black/60 px-3 py-1 rounded-full text-[10px] text-white font-bold">{clip.duration}</div>
+                 </div>
+                 <h4 class="text-[#134503] font-extrabold uppercase text-[10px] tracking-widest">{clip.title}</h4>
+              </div>
+            ))}
+         </div>
+         <a href="https://brisc.babalridha.com/2019/09/12/brisc-infoclips/" target="_blank" rel="noopener noreferrer" class="inline-block mt-12 md:mt-16 text-[#134503] font-extrabold uppercase text-xs tracking-[0.3em] border-b-2 border-[#134503]/20 pb-2 hover:opacity-70 transition-all">Watch More Experiences</a>
+      </div>
+    </section>
+  </div>
+</Layout>

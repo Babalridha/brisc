@@ -1,0 +1,72 @@
+---
+import Layout from '../components/Layout.astro';
+import Icon from '../components/Icon.astro';
+
+const allTestimonials = [
+  { name: "R. D.", loc: "India", text: "This course will bring you closer to the truth, know your surroundings, and help you understand yourself" },
+  { name: "M. S.", loc: "South Africa", text: "BRisc has helped me in following the path of Allah (SWT). It has made me confident that my worldview is based on reality. It will definitely quench your thirst for knowledge and questions that you have regarding your purpose." },
+  { name: "M. K.", loc: "South Africa", text: "The course exceeded all my expectations. It’s not only packed with lots of information but also lots of fun activities and trips that balance things out perfectly. Best of all, you get to meet new people and mentors who will be friends for life now!!" },
+  { name: "H. N.", loc: "UAE", text: "I’d encourage, anyone interested in learning not only religion but how to have a good outlook on life, to definitely join this course if they can. The learning here is much better than at local centres as the approach is focused towards a more mature audience." },
+  { name: "A. G.", loc: "Canada", text: "Taking this course is the best decision I’ve made in my life, the knowledge, experience, life long friendships, love, and the change it brought in me doesn’t compare to anything else." },
+  { name: "K. S.", loc: "Tanzania", text: "BRisc is honestly a life changing course, it caters for everything you’d want. It’s a great way to spend your holidays because you will visit so many different places." },
+  { name: "S. M.", loc: "Kenya", text: "Has been life changing for me. It brought a whole new perspective of Islam – opened my eyes. lifted the veils. cleared my doubts. taught me new things." },
+  { name: "A. B.", loc: "Tanzania", text: "I came with high expectations and it fulfilled every one and more. This course has changed my outlook on life and I know I’ll come back a changed person." },
+  { name: "S. M.", loc: "Tanzania", text: "Bab al Ridha gave me a new life. It made me positive that I won’t go back home as the same person I was when I came." },
+  { name: "R", loc: "Toronto", text: "It’s not a course to give you just a bunch of Hawza knowledge. More, it’ll help you prepare yourself in a way you can’t do alone, help you see the world through Islam." },
+  { name: "F. D.", loc: "Tanzania", text: "I have never been more grateful to Allah than I am now for giving me this chance. It has opened my eyes to so many things that I’ve been in the dark about for so long." },
+  { name: "Z. P.", loc: "Tanzania", text: "The intensive course has given me an overall view and a vision to strengthen my personality and responsibilities as a Muslim." },
+  { name: "M. R.", loc: "Tanzania", text: "Bab al Ridha has been more of an experience rather than just a camp. I have made irreplaceable friends, visited amazing places and learnt new things but most of all I have become part of a growing family." }
+];
+---
+
+<Layout title="Testimonials | Bab al-Ridha Intensive">
+  <div class="pt-32 pb-24 bg-[#fcfbf7]">
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-24">
+        <div class="inline-block bg-[#dcd6be]/30 text-[#134503] px-8 py-2 text-[10px] font-extrabold uppercase tracking-[0.4em] mb-8 rounded-full border border-[#dcd6be]/40 shadow-sm">
+          Testimonials
+        </div>
+        <h1 class="text-6xl md:text-8xl font-serif text-[#134503] mb-8 font-bold italic">What previous participants say...</h1>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
+          Voices from the journey: The profound experiences of seekers who discovered a new outlook on life in the heart of the Holy City.
+        </p>
+      </div>
+
+      <div class="columns-1 md:columns-2 lg:columns-3 gap-10 space-y-10 mb-24">
+        {allTestimonials.map((t) => (
+          <div class="break-inside-avoid bg-white p-10 rounded-[3.5rem] border border-[#dcd6be]/10 shadow-2xl shadow-[#dcd6be]/10 flex flex-col hover:-translate-y-2 transition-all text-left">
+            <div class="flex items-center gap-5 mb-8">
+               <div class="w-14 h-14 rounded-2xl bg-[#dcd6be]/20 flex items-center justify-center text-[#134503] font-bold text-xl shadow-inner">
+                 {t.name[0]}
+               </div>
+               <div>
+                 <h4 class="text-[#134503] font-extrabold uppercase text-[10px] tracking-[0.3em] mb-1">{t.name}</h4>
+                 <span class="text-[#dcd6be] text-[10px] uppercase tracking-[0.3em] font-extrabold">{t.loc}</span>
+               </div>
+            </div>
+            <Icon name="Quote" class="text-[#dcd6be]/30 mb-6" size={40} />
+            <p class="text-[#134503] font-serif text-lg italic font-bold leading-relaxed mb-8">"{t.text}"</p>
+            <div class="mt-auto pt-6 border-t-2 border-gray-50">
+               <span class="text-[10px] uppercase font-extrabold text-[#dcd6be] tracking-[0.4em] block mb-2">Participant Feedback</span>
+               <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Bab al-Ridha Alumnus</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="m-4 bg-[#134503] p-16 md:p-32 rounded-[4rem] text-center text-[#dcd6be] relative overflow-hidden shadow-2xl border border-white/10">
+         <div class="absolute inset-0 opacity-5 flex items-center justify-center pointer-events-none">
+           <h2 class="text-[25vw] font-serif leading-none font-bold italic">BRISC</h2>
+         </div>
+         <div class="relative z-10">
+            <h2 class="text-5xl md:text-7xl font-serif mb-12 italic font-bold">Write Your Own Chapter</h2>
+            <p class="text-[#dcd6be]/60 mb-16 max-w-xl mx-auto text-lg font-medium italic">Join a globally recognized cohort of students seeking to see the world through an Islamic lens.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-8">
+              <button class="bg-[#dcd6be] text-[#134503] px-16 py-5 rounded-full font-extrabold uppercase text-[10px] tracking-[0.4em] hover:bg-white hover:scale-105 transition-all shadow-2xl">Apply for Summer 2024</button>
+              <button class="bg-white/5 backdrop-blur-md border-2 border-white/10 text-white px-16 py-5 rounded-full font-extrabold uppercase text-[10px] tracking-[0.4em] hover:bg-white/10 transition-all">Request Syllabus</button>
+            </div>
+         </div>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from '../components/Layout.astro';
+import Icon from '../components/Icon.astro';
+import { CURRICULUM_SECTIONS } from '../constants';
+---
+
+<Layout title="Curriculum | Bab al-Ridha Intensive">
+  <div class="pt-32 bg-[#fcfbf7]">
+    <section class="py-24 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-24">
+        <span class="text-[#dcd6be] uppercase tracking-[0.4em] text-[10px] font-extrabold block mb-4">Course Components</span>
+        <h1 class="text-[#134503] font-serif text-6xl md:text-8xl mb-8 italic font-bold">The Full Package</h1>
+        <p class="text-gray-500 max-w-2xl mx-auto text-lg font-medium leading-relaxed">
+          Our well-structured 3-week course is a holistic experience balancing intellectual rigor with communal spiritual growth.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+        {CURRICULUM_SECTIONS.map((section) => (
+          <div class="bg-white p-12 rounded-[3.5rem] border border-[#dcd6be]/30 shadow-2xl shadow-[#dcd6be]/10 hover:-translate-y-2 transition-all flex flex-col gap-10 overflow-hidden relative group text-left">
+             <div class="h-64 -mx-12 -mt-12 mb-2 overflow-hidden shadow-inner">
+                <img src={section.image} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" alt={section.title} />
+             </div>
+             <div class="flex gap-8 items-start">
+                <div class="bg-[#134503] p-6 rounded-[2rem] text-[#dcd6be] shadow-lg shrink-0">
+                    <Icon name={section.icon} size={36} />
+                </div>
+                <div>
+                    <div class="text-[#dcd6be] text-[10px] font-extrabold uppercase tracking-widest mb-2">Category 0{section.id}</div>
+                    <h3 class="text-3xl font-extrabold text-[#134503] mb-6 uppercase tracking-tight font-serif italic">{section.title}</h3>
+                    <p class="text-gray-500 text-base leading-relaxed font-medium italic">"{section.desc}"</p>
+                </div>
+             </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
