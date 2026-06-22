@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
-
-const LOGO_URL = "https://brisc.babalridha.com/wp-content/uploads/2018/03/BRI_Logo-1.png";
+import { Image } from 'astro:assets';
+import { logoImg } from '../constants';
 
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '/index.html' || pathname === '';
@@ -19,7 +19,7 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center">
       <a href="/" class="flex items-center gap-4">
-        <img src={LOGO_URL} alt="Bab al-Ridha" class="h-12 w-auto object-contain rounded-lg" />
+        <Image src={logoImg} alt="Bab al-Ridha" class="h-12 w-auto object-contain rounded-lg" />
         <div class="flex flex-col">
           <span id="brand-title" class={`text-lg font-bold tracking-tight transition-colors duration-300 ${!isHome ? 'text-[#134503]' : 'text-white'}`}>Bab al-Ridha</span>
           <span id="brand-sub" class={`text-[10px] tracking-widest font-semibold uppercase transition-colors duration-300 ${!isHome ? 'text-[#134503]/70' : 'text-[#dcd6be]'}`}>Intensive Short Course</span>

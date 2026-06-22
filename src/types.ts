@@ -24,6 +24,6 @@ export interface FAQItem {
 export interface GalleryItem {
   id: string;
   category: string;
-  url: string;
+  url: any;
   title: string;
 }

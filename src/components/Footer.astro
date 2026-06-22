@@ -1,7 +1,7 @@
 ---
 import Icon from './Icon.astro';
-
-const LOGO_URL = "https://brisc.babalridha.com/wp-content/uploads/2018/03/BRI_Logo-1.png";
+import { Image } from 'astro:assets';
+import { logoImg } from '../constants';
 ---
 
 <footer class="bg-[#dcd6be] text-[#134503] pt-20 pb-10 mt-auto">
@@ -9,7 +9,7 @@ const LOGO_URL = "https://brisc.babalridha.com/wp-content/uploads/2018/03/BRI_Lo
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
       <div class="col-span-1 md:col-span-1">
         <div class="flex items-center gap-3 mb-6">
-          <img src={LOGO_URL} alt="Logo" class="h-10 w-auto rounded-lg" />
+          <Image src={logoImg} alt="Logo" class="h-10 w-auto rounded-lg" />
           <span class="text-2xl font-bold tracking-tight">Bab al-Ridha</span>
         </div>
         <p class="text-[#134503]/80 text-sm leading-relaxed mb-6">
