@@ -96,15 +96,15 @@ const instagramPosts = [
          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
             {instagramPosts.map((post) => (
                <div class="rounded-[2.5rem] overflow-hidden shadow-xl bg-white border border-[#dcd6be]/15 p-3 flex flex-col justify-between h-[28rem] hover:-translate-y-1 transition-transform duration-500">
-                  <div class="flex-grow rounded-2xl overflow-hidden bg-gray-50 relative">
-                     <iframe 
-                        src={`https://www.instagram.com/p/${post.id}/embed/`}
-                        class="w-full h-full"
-                        frameborder="0"
-                        scrolling="no"
-                        allowtransparency="true"
-                        referrerpolicy="no-referrer-when-downgrade"
-                     ></iframe>
+                  <div class="flex-grow rounded-2xl overflow-hidden bg-gray-50 relative flex items-center justify-center">
+                     <blockquote 
+                        class="instagram-media w-full h-full" 
+                        data-instgrm-permalink={`https://www.instagram.com/p/${post.id}/`} 
+                        data-instgrm-version="14"
+                        style="background: transparent; border: 0; margin: 0; min-width: 100%; width: 100%; height: 100%;"
+                     >
+                        <a href={`https://www.instagram.com/p/${post.id}/`} target="_blank" rel="noopener noreferrer"></a>
+                     </blockquote>
                   </div>
                   <div class="pt-4 pb-2 text-center shrink-0">
                      <p class="text-[10px] font-extrabold uppercase tracking-wider text-[#134503]/50 leading-snug">{post.title}</p>
@@ -112,6 +112,7 @@ const instagramPosts = [
                </div>
             ))}
          </div>
+         <script async src="https://www.instagram.com/embed.js"></script>
 
          <a 
             href="https://www.instagram.com/babalridha_brisc/" 
