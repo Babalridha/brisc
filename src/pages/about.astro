@@ -3,14 +3,6 @@ import Layout from '../components/Layout.astro';
 import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import brisc13Img from '../assets/images/Brisc-13-4web.png';
-
-// Instagram Post IDs from the babalridha_brisc profile
-const instagramPosts = [
-  { id: "DDABbhwRWea", title: "Where it all began?" },
-  { id: "DSfRpZFiG7j", title: "Scholar Visits" },
-  { id: "DMQEgQMocUW", title: "BRISC 13 Highlights" },
-  { id: "DSg5PATCHFW", title: "Beyond the classroom" }
-];
 ---
 
 <Layout title="About Us | Bab al-Ridha Intensive">
@@ -83,54 +75,6 @@ const instagramPosts = [
             <h4 class="text-2xl md:text-3xl font-serif font-bold italic">Bab al-Ridha Institute</h4>
             <span class="text-[10px] uppercase tracking-[0.5em] text-[#134503]/50 font-extrabold">Serving the Global Ummah</span>
          </div>
-      </div>
-
-      <!-- Instagram Highlights Section -->
-      <div class="mt-32 mb-20 text-center">
-         <span class="text-[#134503]/50 uppercase tracking-[0.4em] text-[10px] font-extrabold block mb-4">Instagram Moments</span>
-         <h2 class="text-4xl md:text-7xl font-serif text-[#134503] mb-8 font-bold italic">Highlights of the Journey</h2>
-         <p class="text-gray-500 max-w-xl mx-auto text-sm md:text-base font-medium leading-relaxed mb-16 italic">
-            Catch a glimpse of daily life, student experiences, and spiritual highlights shared directly on our Instagram channel.
-         </p>
-
-         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
-            {instagramPosts.map((post) => (
-               <div class="rounded-[2.5rem] overflow-hidden shadow-xl bg-white border border-[#dcd6be]/15 p-3 flex flex-col justify-between h-[28rem] hover:-translate-y-1 transition-transform duration-500">
-                  <div class="flex-grow rounded-2xl overflow-hidden bg-gray-50 relative flex items-center justify-center">
-                     <blockquote 
-                        class="instagram-media w-full h-full" 
-                        data-instgrm-permalink={`https://www.instagram.com/p/${post.id}/`} 
-                        data-instgrm-version="14"
-                        style="background: transparent; border: 0; margin: 0; min-width: 100%; width: 100%; height: 100%;"
-                     >
-                        <a href={`https://www.instagram.com/p/${post.id}/`} target="_blank" rel="noopener noreferrer"></a>
-                     </blockquote>
-                  </div>
-                  <div class="pt-4 pb-2 text-center shrink-0">
-                     <p class="text-[10px] font-extrabold uppercase tracking-wider text-[#134503]/50 leading-snug">{post.title}</p>
-                  </div>
-               </div>
-            ))}
-         </div>
-         <script is:inline async src="https://www.instagram.com/embed.js"></script>
-         <script>
-            // Re-process embeds when page loads
-            const processEmbeds = () => {
-               if (window.instgrm) {
-                  window.instgrm.Embeds.process();
-               }
-            };
-            window.addEventListener('load', processEmbeds);
-         </script>
-
-         <a 
-            href="https://www.instagram.com/babalridha_brisc/" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="inline-flex items-center gap-3 bg-[#134503] text-[#dcd6be] px-10 py-4.5 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-xl hover:scale-105 transition-all"
-         >
-            <Icon name="Instagram" size={16} /> Follow @babalridha_brisc
-         </a>
       </div>
     </section>
   </div>
