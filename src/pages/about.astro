@@ -4,11 +4,12 @@ import Icon from '../components/Icon.astro';
 import { Image } from 'astro:assets';
 import brisc13Img from '../assets/images/Brisc-13-4web.png';
 
-const infoClips = [
-  { title: "Ziyarat in Mashhad", duration: "1:24", color: "#134503" },
-  { title: "Intellectual Rigor", duration: "2:05", color: "#dcd6be" },
-  { title: "Brotherhood & Fun", duration: "1:45", color: "#134503" },
-  { title: "Mentor Perspective", duration: "3:12", color: "#dcd6be" }
+// Instagram Post IDs from the babalridha_brisc profile
+const instagramPosts = [
+  { id: "DDABbhwRWea", title: "Where it all began?" },
+  { id: "DSfRpZFiG7j", title: "Scholar Visits" },
+  { id: "DMQEgQMocUW", title: "BRISC 13 Highlights" },
+  { id: "DSg5PATCHFW", title: "Beyond the classroom" }
 ];
 ---
 
@@ -84,25 +85,42 @@ const infoClips = [
          </div>
       </div>
 
-      <!-- Info Clips Section -->
-      <div class="mb-24 md:mb-40 text-center">
-         <h2 class="text-4xl md:text-7xl font-serif text-[#134503] mb-12 md:mb-16 font-bold italic">Info Clips</h2>
-         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {infoClips.map((clip) => (
-              <div class="group cursor-pointer">
-                 <div class="relative aspect-video rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl mb-4 md:mb-6 bg-gray-200">
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                       <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center text-[#134503] group-hover:scale-110 transition-transform shadow-lg">
-                          <Icon name="Play" class="w-5 h-5 md:w-6 md:h-6 ml-1 text-[#134503]" fill="currentColor"/>
-                       </div>
-                    </div>
-                    <div class="absolute bottom-4 right-6 bg-black/60 px-3 py-1 rounded-full text-[10px] text-white font-bold">{clip.duration}</div>
-                 </div>
-                 <h4 class="text-[#134503] font-extrabold uppercase text-[10px] tracking-widest">{clip.title}</h4>
-              </div>
+      <!-- Instagram Highlights Section -->
+      <div class="mt-32 mb-20 text-center">
+         <span class="text-[#134503]/50 uppercase tracking-[0.4em] text-[10px] font-extrabold block mb-4">Instagram Moments</span>
+         <h2 class="text-4xl md:text-7xl font-serif text-[#134503] mb-8 font-bold italic">Highlights of the Journey</h2>
+         <p class="text-gray-500 max-w-xl mx-auto text-sm md:text-base font-medium leading-relaxed mb-16 italic">
+            Catch a glimpse of daily life, student experiences, and spiritual highlights shared directly on our Instagram channel.
+         </p>
+
+         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
+            {instagramPosts.map((post) => (
+               <div class="rounded-[2.5rem] overflow-hidden shadow-xl bg-white border border-[#dcd6be]/15 p-3 flex flex-col justify-between h-[28rem] hover:-translate-y-1 transition-transform duration-500">
+                  <div class="flex-grow rounded-2xl overflow-hidden bg-gray-50 relative">
+                     <iframe 
+                        src={`https://www.instagram.com/p/${post.id}/embed/`}
+                        class="w-full h-full"
+                        frameborder="0"
+                        scrolling="no"
+                        allowtransparency="true"
+                        referrerpolicy="no-referrer-when-downgrade"
+                     ></iframe>
+                  </div>
+                  <div class="pt-4 pb-2 text-center shrink-0">
+                     <p class="text-[10px] font-extrabold uppercase tracking-wider text-[#134503]/50 leading-snug">{post.title}</p>
+                  </div>
+               </div>
             ))}
          </div>
-         <a href="https://brisc.babalridha.com/2019/09/12/brisc-infoclips/" target="_blank" rel="noopener noreferrer" class="inline-block mt-12 md:mt-16 text-[#134503] font-extrabold uppercase text-xs tracking-[0.3em] border-b-2 border-[#134503]/20 pb-2 hover:opacity-70 transition-all">Watch More Experiences</a>
+
+         <a 
+            href="https://www.instagram.com/babalridha_brisc/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-flex items-center gap-3 bg-[#134503] text-[#dcd6be] px-10 py-4.5 rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-xl hover:scale-105 transition-all"
+         >
+            <Icon name="Instagram" size={16} /> Follow @babalridha_brisc
+         </a>
       </div>
     </section>
   </div>

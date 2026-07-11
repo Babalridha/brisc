@@ -60,7 +60,7 @@ interface Props {
   fill?: string;
 }
 
-const { name, size = 24, class: className, fill } = Astro.props;
+const { name, size = 24, class: className, fill = "none" } = Astro.props;
 const IconComponent = icons[name as keyof typeof icons];
 const isCustom = name === 'Instagram' || name === 'Youtube' || name === 'Facebook';
 ---
@@ -72,7 +72,7 @@ const isCustom = name === 'Instagram' || name === 'Youtube' || name === 'Faceboo
       width={size} 
       height={size} 
       viewBox="0 0 24 24" 
-      fill={fill || "none"} 
+      fill={fill} 
       stroke="currentColor" 
       stroke-width="2" 
       stroke-linecap="round" 
@@ -89,7 +89,7 @@ const isCustom = name === 'Instagram' || name === 'Youtube' || name === 'Faceboo
       width={size} 
       height={size} 
       viewBox="0 0 24 24" 
-      fill={fill || "none"} 
+      fill={fill} 
       stroke="currentColor" 
       stroke-width="2" 
       stroke-linecap="round" 
@@ -97,7 +97,7 @@ const isCustom = name === 'Instagram' || name === 'Youtube' || name === 'Faceboo
       class={className}
     >
       <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/>
-      <polygon points="10 15 15 12 10 9" fill={fill || "currentColor"}/>
+      <polygon points="10 15 15 12 10 9" fill={fill && fill !== "none" ? fill : "currentColor"}/>
     </svg>
   ) : name === 'Facebook' ? (
     <svg 
@@ -105,7 +105,7 @@ const isCustom = name === 'Instagram' || name === 'Youtube' || name === 'Faceboo
       width={size} 
       height={size} 
       viewBox="0 0 24 24" 
-      fill={fill || "none"} 
+      fill={fill} 
       stroke="currentColor" 
       stroke-width="2" 
       stroke-linecap="round" 
