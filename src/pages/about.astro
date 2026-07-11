@@ -112,7 +112,16 @@ const instagramPosts = [
                </div>
             ))}
          </div>
-         <script async src="https://www.instagram.com/embed.js"></script>
+         <script is:inline async src="https://www.instagram.com/embed.js"></script>
+         <script>
+            // Re-process embeds when page loads
+            const processEmbeds = () => {
+               if (window.instgrm) {
+                  window.instgrm.Embeds.process();
+               }
+            };
+            window.addEventListener('load', processEmbeds);
+         </script>
 
          <a 
             href="https://www.instagram.com/babalridha_brisc/" 
