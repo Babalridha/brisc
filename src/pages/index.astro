@@ -68,7 +68,7 @@ const HERO_IMAGES = [hero1Img, hero2Img];
             </a>
           </div>
         </div>
-      </div>
+      </div> 
 
       <!-- Slide Indicators -->
       <div class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-4 z-20">
@@ -127,7 +127,7 @@ const HERO_IMAGES = [hero1Img, hero2Img];
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {WELCOME_PILLARS.map((pillar) => (
             <div class="relative group h-80 rounded-[2.5rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-all">
-              <Image src={pillar.image} class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={pillar.title} />
+              <Image src={pillar.image}  width={800} height={600} class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={pillar.title} />
               <div class="absolute inset-0 bg-gradient-to-t from-[#134503]/90 via-[#134503]/20 to-transparent"></div>
               <div class="absolute bottom-8 left-0 right-0 px-6">
                 <h3 class="text-[#dcd6be] font-bold text-xl uppercase tracking-tighter leading-tight">{pillar.title}</h3>
@@ -150,7 +150,7 @@ const HERO_IMAGES = [hero1Img, hero2Img];
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {AIMS.map((aim) => (
             <div class="relative group h-[28rem] rounded-[3.5rem] overflow-hidden shadow-2xl">
-              <Image src={aim.image} class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-1000" alt={aim.title} />
+              <Image src={aim.image}  width={800} height={600} class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-all duration-1000" alt={aim.title} />
               <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-[#134503]/40 to-[#134503]"></div>
               <div class="absolute inset-0 p-12 flex flex-col justify-end text-left">
                 <div class="text-[#dcd6be] text-[10px] font-extrabold uppercase tracking-widest mb-4">Goal 0{aim.id}</div>
@@ -178,7 +178,7 @@ const HERO_IMAGES = [hero1Img, hero2Img];
           {CURRICULUM_SECTIONS.slice(0, 4).map((item) => (
              <div class="flex gap-8 p-10 bg-white rounded-[3rem] border border-[#dcd6be]/20 shadow-xl shadow-[#dcd6be]/5">
                 <div class="hidden sm:block w-32 h-32 rounded-[2rem] overflow-hidden shrink-0 shadow-lg">
-                  <Image src={item.image} class="w-full h-full object-cover" alt={item.title} />
+                  <Image src={item.image} width={800} height={600}  class="w-full h-full object-cover" alt={item.title} />
                 </div>
                 <div>
                    <h3 class="text-[#134503] font-bold text-xl uppercase tracking-tighter mb-4">{item.title}</h3>
