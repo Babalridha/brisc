@@ -90,6 +90,21 @@ const galleryEduTrip7 = "https://media.brisc.babalridha.com/gallery/educational_
 const galleryEduTrip8 = "https://media.brisc.babalridha.com/gallery/educational_trips/08.webp";
 const galleryEduTrip9 = "https://media.brisc.babalridha.com/gallery/educational_trips/09.webp";
 
+const gallerySpiritualTrip1 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/01.webp";
+const gallerySpiritualTrip2 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/02.webp";
+const gallerySpiritualTrip3 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/03.webp";
+const gallerySpiritualTrip4 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/04.webp";
+const gallerySpiritualTrip5 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/05.webp";
+const gallerySpiritualTrip6 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/06.webp";
+const gallerySpiritualTrip7 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/07.webp";
+const gallerySpiritualTrip8 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/08.webp";
+const gallerySpiritualTrip9 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/09.webp";
+const gallerySpiritualTrip10 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/10.webp";
+const gallerySpiritualTrip11 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/11.webp";
+const gallerySpiritualTrip12 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/12.webp";
+const gallerySpiritualTrip13 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/13.webp";
+const gallerySpiritualTrip14 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/14.webp";
+
 const gallerySport1 = "https://media.brisc.babalridha.com/gallery/sports/01.webp";
 const gallerySport2 = "https://media.brisc.babalridha.com/gallery/sports/02.webp";
 const gallerySport3 = "https://media.brisc.babalridha.com/gallery/sports/03.webp";
@@ -302,7 +317,20 @@ export const GALLERY: GalleryItem[] = [
   { id: 'schol-14', category: 'Visits to Scholars', url: gallerySchol14 },
 
   // Spiritual Trips
-  
+  { id: 'spiritual-1', category: 'Spiritual Trips', url: gallerySpiritualTrip1 },
+  { id: 'spiritual-2', category: 'Spiritual Trips', url: gallerySpiritualTrip2 },
+  { id: 'spiritual-3', category: 'Spiritual Trips', url: gallerySpiritualTrip3 },
+  { id: 'spiritual-4', category: 'Spiritual Trips', url: gallerySpiritualTrip4 },
+  { id: 'spiritual-5', category: 'Spiritual Trips', url: gallerySpiritualTrip5 },
+  { id: 'spiritual-6', category: 'Spiritual Trips', url: gallerySpiritualTrip6 },
+  { id: 'spiritual-7', category: 'Spiritual Trips', url: gallerySpiritualTrip7 },
+  { id: 'spiritual-8', category: 'Spiritual Trips', url: gallerySpiritualTrip8 },
+  { id: 'spiritual-9', category: 'Spiritual Trips', url: gallerySpiritualTrip9 },
+  { id: 'spiritual-10', category: 'Spiritual Trips', url: gallerySpiritualTrip10 },
+  { id: 'spiritual-11', category: 'Spiritual Trips', url: gallerySpiritualTrip11 },
+  { id: 'spiritual-12', category: 'Spiritual Trips', url: gallerySpiritualTrip12 },
+  { id: 'spiritual-13', category: 'Spiritual Trips', url: gallerySpiritualTrip13 },
+  { id: 'spiritual-14', category: 'Spiritual Trips', url: gallerySpiritualTrip14 },
 
   // Educational Trips
   { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip1 },
@@ -314,7 +342,6 @@ export const GALLERY: GalleryItem[] = [
   { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip7 },
   { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip8 },
   { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip9 },
-
 
   // Sports and Leisure
   { id: 'sport-1', category: 'Sports and Leisure', url: gallerySport1 },
