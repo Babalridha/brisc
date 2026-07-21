@@ -2,13 +2,14 @@
 import Layout from '../components/Layout.astro';
 import { Image } from 'astro:assets';
 import { GALLERY } from '../constants';
+import Icon from '../components/Icon.astro';
 
 const categoryDetails: Record<string, string> = {
   'Pre-BRisc preparations': 'Mentoring is an important aspect of BRisc, and a lot of effort goes into making the mentoring scheme a successful model. Before the start of the course, new mentors got together to get briefed about their roles and learn from previous mentors. A lot of preparation is done behind the scenes, on laptops and long (sometimes late-night) meetings.',
   'Opening Ceremony': 'This is where it all started! The opening ceremony was held in the first night. All participants, mentors, and teachers gathered in the big hall. Guest scholars blessed us with their presence. It was about introducing the course and starting the bonding which would continue throughout the course.',
   'Classes and Workshops': 'The course is primarily to gain knowledge (nearly 50 hours!). We aimed to open the door to profound Islamic knowledge in important fields, helping participants acquire a correct Islamic worldview and a balanced approach to daily life.',
   'Discussions and Youth Project': 'Learning was kept interactive with workshops, group discussions, and team-building activities. One of the important parts was the youth project, allowing participants to think outside the box and implement course material on a practical project.',
-  'Visits to Scholars': 'Amazing opportunities to meet great scholars: Ayatullah Jawadi Amuli (Marja, philosopher), Ayatullah Tahriri (spiritual teacher), Agha Saberi (Hawzah teacher), Agha Panahian (famous scholar), and Agha Amini (Hawzah counselor).',
+  'Visits to Scholars': 'Amazing opportunities to meet great scholars: Ayatullah Tahriri (Mujtahid, Expert in Akhlaq), Agha Saberi (Hawzah teacher), Dr. Leganhausen (Philosopher), Dr. Rafiei (Renowned Lecturer, Expert in History), Agha Husayni Qazwini (Senior Hawza Teacher) and Agha Amini (Head of Bab al-Ridha Institute).',
   'Spiritual Trips': 'Highlights include spiritual boosts from the ziarat of Imam Ridha (as) and Hazrat Fatimah Ma’sumah (sa). Programs included Dua Kumayl, Dua Tawassul in Masjid Jamkaran, and visiting Sultan Ali in Mashhade Ardehal.',
   'Educational Trips': 'Lots of visits and trips to complement classroom learning, visiting eye-opening and inspirational institutions and museums.',
   'Sports and Leisure': 'Intensive but not all studying! Loads of fun with sports activities and trips, including BBQ day trips and waterfalls even in the freezing weather!'
@@ -58,12 +59,62 @@ const defaultCategory = 'Pre-BRisc preparations';
             data-item-category={item.category}
             class="relative group overflow-hidden break-inside-avoid shadow-2xl rounded-[3rem] cursor-pointer"
           >
-            <Image src={item.url} width={800} height={600} alt={item.title} class="w-full h-auto grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" />
+            <Image src={item.url} width={600} height={400} alt="gallery" class="w-full h-auto grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" />
             
           </div>
         ))}
       </div>
     </section>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div 
+    id="lightbox-modal" 
+    class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 ease-in-out"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Close Button -->
+    <button 
+      id="lightbox-close" 
+      class="absolute top-6 right-6 text-[#dcd6be]/70 hover:text-[#dcd6be] transition-all duration-200 bg-[#134503]/80 hover:bg-[#134503] p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#dcd6be] cursor-pointer"
+      aria-label="Close lightbox"
+    >
+      <Icon name="X" size={24} />
+    </button>
+
+    <!-- Previous Button -->
+    <button 
+      id="lightbox-prev" 
+      class="absolute left-4 md:left-6 text-[#dcd6be]/70 hover:text-[#dcd6be] transition-all duration-200 bg-[#134503]/80 hover:bg-[#134503] p-3 md:p-4 rounded-full focus:outline-none focus:ring-2 focus:ring-[#dcd6be] cursor-pointer"
+      aria-label="Previous image"
+    >
+      <Icon name="ChevronLeft" size={28} />
+    </button>
+
+    <!-- Image Container -->
+    <div class="max-w-[85vw] max-h-[80vh] flex flex-col items-center justify-center select-none relative">
+      <img 
+        id="lightbox-img" 
+        class="max-w-full max-h-[70vh] md:max-h-[75vh] object-contain rounded-[2rem] shadow-2xl border border-[#dcd6be]/20 opacity-0 scale-95 transition-all duration-300 ease-in-out" 
+        src="" 
+        alt="" 
+      />
+      
+      <!-- Image Counter -->
+      <div id="lightbox-counter" class="text-[#dcd6be]/80 bg-[#134503]/80 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mt-4 border border-[#dcd6be]/10">
+        <!-- Will be populated dynamically -->
+      </div>
+    </div>
+
+    <!-- Next Button -->
+    <button 
+      id="lightbox-next" 
+      class="absolute right-4 md:right-6 text-[#dcd6be]/70 hover:text-[#dcd6be] transition-all duration-200 bg-[#134503]/80 hover:bg-[#134503] p-3 md:p-4 rounded-full focus:outline-none focus:ring-2 focus:ring-[#dcd6be] cursor-pointer"
+      aria-label="Next image"
+    >
+      <Icon name="ChevronRight" size={28} />
+    </button>
   </div>
 </Layout>
 
@@ -110,7 +161,7 @@ const defaultCategory = 'Pre-BRisc preparations';
   // Set default selection
   selectCategory('Pre-BRisc preparations');
 
-  // Add click handlers
+  // Add click handlers for category switching
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const cat = btn.getAttribute('data-category-btn');
@@ -118,5 +169,139 @@ const defaultCategory = 'Pre-BRisc preparations';
         selectCategory(cat);
       }
     });
+  });
+
+  // Lightbox Implementation
+  const modal = document.getElementById('lightbox-modal');
+  const modalImg = document.getElementById('lightbox-img');
+  const modalClose = document.getElementById('lightbox-close');
+  const modalPrev = document.getElementById('lightbox-prev');
+  const modalNext = document.getElementById('lightbox-next');
+  const modalCounter = document.getElementById('lightbox-counter');
+
+  let activeIndex = -1;
+
+  function getVisibleItems() {
+    return Array.from(items).filter(item => !item.classList.contains('hidden'));
+  }
+
+  function openLightbox(index) {
+    const visibleItems = getVisibleItems();
+    if (index < 0 || index >= visibleItems.length) return;
+    
+    activeIndex = index;
+    const item = visibleItems[activeIndex];
+    const img = item.querySelector('img');
+    if (!img) return;
+
+    // Show modal container
+    if (modal) {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
+    }
+    // Prevent background scrolling
+    document.body.style.overflow = 'hidden';
+
+    // Show image
+    updateLightboxImage(img.getAttribute('src') || '', img.getAttribute('alt') || 'gallery image');
+  }
+
+  function updateLightboxImage(src, alt) {
+    if (!modalImg || !modalCounter) return;
+
+    // Fade out/scale down previous image
+    modalImg.classList.remove('scale-100', 'opacity-100');
+    modalImg.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+      modalImg.setAttribute('src', src);
+      modalImg.setAttribute('alt', alt);
+      
+      // Update counter
+      const visibleItems = getVisibleItems();
+      modalCounter.textContent = `${activeIndex + 1} / ${visibleItems.length}`;
+      
+      // Fade in/scale up new image
+      modalImg.classList.remove('scale-95', 'opacity-0');
+      modalImg.classList.add('scale-100', 'opacity-100');
+    }, 150);
+  }
+
+  function closeLightbox() {
+    if (modal) {
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+    }
+    if (modalImg) {
+      modalImg.classList.remove('scale-100', 'opacity-100');
+      modalImg.classList.add('scale-95', 'opacity-0');
+    }
+    // Restore scrolling
+    document.body.style.overflow = '';
+    activeIndex = -1;
+  }
+
+  function showNext() {
+    const visibleItems = getVisibleItems();
+    if (visibleItems.length === 0) return;
+    const nextIndex = (activeIndex + 1) % visibleItems.length;
+    openLightbox(nextIndex);
+  }
+
+  function showPrev() {
+    const visibleItems = getVisibleItems();
+    if (visibleItems.length === 0) return;
+    const prevIndex = (activeIndex - 1 + visibleItems.length) % visibleItems.length;
+    openLightbox(prevIndex);
+  }
+
+  // Attach click listener to each gallery item
+  items.forEach((item) => {
+    item.addEventListener('click', () => {
+      const visibleItems = getVisibleItems();
+      const index = visibleItems.indexOf(item);
+      if (index !== -1) {
+        openLightbox(index);
+      }
+    });
+  });
+
+  // Close and navigation controls
+  if (modalClose) {
+    modalClose.addEventListener('click', closeLightbox);
+  }
+  if (modalPrev) {
+    modalPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showPrev();
+    });
+  }
+  if (modalNext) {
+    modalNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showNext();
+    });
+  }
+
+  // Close when clicking backdrop
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (activeIndex === -1) return;
+    
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+      showNext();
+    } else if (e.key === 'ArrowLeft') {
+      showPrev();
+    }
   });
 </script>

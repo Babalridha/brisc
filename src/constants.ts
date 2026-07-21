@@ -80,15 +80,30 @@ const gallerySchol12 = "https://media.brisc.babalridha.com/gallery/scholars/12.w
 const gallerySchol13 = "https://media.brisc.babalridha.com/gallery/scholars/13.webp";
 const gallerySchol14 = "https://media.brisc.babalridha.com/gallery/scholars/14.webp";
 
-const galleryEduTrip1 = "https://media.brisc.babalridha.com/gallery/trips/01.webp";
-const galleryEduTrip2 = "https://media.brisc.babalridha.com/gallery/trips/02.webp";
-const galleryEduTrip3 = "https://media.brisc.babalridha.com/gallery/trips/03.webp";
-const galleryEduTrip4 = "https://media.brisc.babalridha.com/gallery/trips/04.webp";
-const galleryEduTrip5 = "https://media.brisc.babalridha.com/gallery/trips/05.webp";
-const galleryEduTrip6 = "https://media.brisc.babalridha.com/gallery/trips/06.webp";
-const galleryEduTrip7 = "https://media.brisc.babalridha.com/gallery/trips/07.webp";
-const galleryEduTrip8 = "https://media.brisc.babalridha.com/gallery/trips/08.webp";
-const galleryEduTrip9 = "https://media.brisc.babalridha.com/gallery/trips/09.webp";
+const galleryEduTrip1 = "https://media.brisc.babalridha.com/gallery/educational_trips/01.webp";
+const galleryEduTrip2 = "https://media.brisc.babalridha.com/gallery/educational_trips/02.webp";
+const galleryEduTrip3 = "https://media.brisc.babalridha.com/gallery/educational_trips/03.webp";
+const galleryEduTrip4 = "https://media.brisc.babalridha.com/gallery/educational_trips/04.webp";
+const galleryEduTrip5 = "https://media.brisc.babalridha.com/gallery/educational_trips/05.webp";
+const galleryEduTrip6 = "https://media.brisc.babalridha.com/gallery/educational_trips/06.webp";
+const galleryEduTrip7 = "https://media.brisc.babalridha.com/gallery/educational_trips/07.webp";
+const galleryEduTrip8 = "https://media.brisc.babalridha.com/gallery/educational_trips/08.webp";
+const galleryEduTrip9 = "https://media.brisc.babalridha.com/gallery/educational_trips/09.webp";
+
+const gallerySpiritualTrip1 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/01.webp";
+const gallerySpiritualTrip2 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/02.webp";
+const gallerySpiritualTrip3 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/03.webp";
+const gallerySpiritualTrip4 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/04.webp";
+const gallerySpiritualTrip5 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/05.webp";
+const gallerySpiritualTrip6 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/06.webp";
+const gallerySpiritualTrip7 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/07.webp";
+const gallerySpiritualTrip8 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/08.webp";
+const gallerySpiritualTrip9 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/09.webp";
+const gallerySpiritualTrip10 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/10.webp";
+const gallerySpiritualTrip11 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/11.webp";
+const gallerySpiritualTrip12 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/12.webp";
+const gallerySpiritualTrip13 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/13.webp";
+const gallerySpiritualTrip14 = "https://media.brisc.babalridha.com/gallery/spiritual_trips/14.webp";
 
 const gallerySport1 = "https://media.brisc.babalridha.com/gallery/sports/01.webp";
 const gallerySport2 = "https://media.brisc.babalridha.com/gallery/sports/02.webp";
@@ -243,87 +258,99 @@ export const FAQS: FAQItem[] = [
 
 export const GALLERY: GalleryItem[] = [
   // Pre-BRisc preparations
-  { id: 'pre-1', category: 'Pre-BRisc preparations', url: galleryPrep1, title: 'Mentor Briefing Session' },
-  { id: 'pre-2', category: 'Pre-BRisc preparations', url: galleryPrep2, title: 'Late Night Planning' },
-  { id: 'pre-3', category: 'Pre-BRisc preparations', url: galleryPrep3, title: 'Logistics Strategy' },
-  { id: 'pre-4', category: 'Pre-BRisc preparations', url: galleryPrep4, title: 'Logistics Strategy' },
-  { id: 'pre-5', category: 'Pre-BRisc preparations', url: galleryPrep5, title: 'Logistics Strategy' },
-  { id: 'pre-6', category: 'Pre-BRisc preparations', url: galleryPrep6, title: 'Logistics Strategy' },
-  { id: 'pre-7', category: 'Pre-BRisc preparations', url: galleryPrep7, title: 'Logistics Strategy' },
+  { id: 'pre-1', category: 'Pre-BRisc preparations', url: galleryPrep1 },
+  { id: 'pre-2', category: 'Pre-BRisc preparations', url: galleryPrep2 },
+  { id: 'pre-3', category: 'Pre-BRisc preparations', url: galleryPrep3 },
+  { id: 'pre-4', category: 'Pre-BRisc preparations', url: galleryPrep4 },
+  { id: 'pre-5', category: 'Pre-BRisc preparations', url: galleryPrep5 },
+  { id: 'pre-6', category: 'Pre-BRisc preparations', url: galleryPrep6 },
+  { id: 'pre-7', category: 'Pre-BRisc preparations', url: galleryPrep7 },
   
   // Opening Ceremony
-  { id: 'open-1', category: 'Opening Ceremony', url: galleryOpen1, title: 'Welcome Address' },
-  { id: 'open-2', category: 'Opening Ceremony', url: galleryOpen2, title: 'Scholarly Blessings' },
-  { id: 'open-3', category: 'Opening Ceremony', url: galleryOpen3, title: 'Communal Dinner' },
-  { id: 'open-4', category: 'Opening Ceremony', url: galleryOpen4, title: 'Communal Dinner' },
-  { id: 'open-5', category: 'Opening Ceremony', url: galleryOpen5, title: 'Communal Dinner' },
-  { id: 'open-6', category: 'Opening Ceremony', url: galleryOpen6, title: 'Communal Dinner' },
-  { id: 'open-7', category: 'Opening Ceremony', url: galleryOpen7, title: 'Communal Dinner' },
-  { id: 'open-8', category: 'Opening Ceremony', url: galleryOpen8, title: 'Communal Dinner' },
-  { id: 'open-9', category: 'Opening Ceremony', url: galleryOpen9, title: 'Communal Dinner' },
+  { id: 'open-1', category: 'Opening Ceremony', url: galleryOpen1 },
+  { id: 'open-2', category: 'Opening Ceremony', url: galleryOpen2 },
+  { id: 'open-3', category: 'Opening Ceremony', url: galleryOpen3 },
+  { id: 'open-4', category: 'Opening Ceremony', url: galleryOpen4 },
+  { id: 'open-5', category: 'Opening Ceremony', url: galleryOpen5 },
+  { id: 'open-6', category: 'Opening Ceremony', url: galleryOpen6 },
+  { id: 'open-7', category: 'Opening Ceremony', url: galleryOpen7 },
+  { id: 'open-8', category: 'Opening Ceremony', url: galleryOpen8 },
+  { id: 'open-9', category: 'Opening Ceremony', url: galleryOpen9 },
 
   // Classes and Workshops
-  { id: 'class-1', category: 'Classes and Workshops', url: galleryClass1, title: 'Morning Lecture' },
-  { id: 'class-2', category: 'Classes and Workshops', url: galleryClass2, title: 'Interactive Seminar' },
-  { id: 'class-3', category: 'Classes and Workshops', url: galleryClass3, title: 'Theology Workshop' },
-  { id: 'class-4', category: 'Classes and Workshops', url: galleryClass4, title: 'Morning Lecture' },
-  { id: 'class-5', category: 'Classes and Workshops', url: galleryClass5, title: 'Morning Lecture' },
-  { id: 'class-6', category: 'Classes and Workshops', url: galleryClass6, title: 'Morning Lecture' },
-  { id: 'class-7', category: 'Classes and Workshops', url: galleryClass7, title: 'Morning Lecture' },
-  { id: 'class-8', category: 'Classes and Workshops', url: galleryClass8, title: 'Morning Lecture' },
-  { id: 'class-9', category: 'Classes and Workshops', url: galleryClass9, title: 'Morning Lecture' },
-  { id: 'class-10', category: 'Classes and Workshops', url: galleryClass10, title: 'Morning Lecture' },
-  { id: 'class-11', category: 'Classes and Workshops', url: galleryClass11, title: 'Morning Lecture' },
+  { id: 'class-1', category: 'Classes and Workshops', url: galleryClass1 },
+  { id: 'class-2', category: 'Classes and Workshops', url: galleryClass2 },
+  { id: 'class-3', category: 'Classes and Workshops', url: galleryClass3 },
+  { id: 'class-4', category: 'Classes and Workshops', url: galleryClass4 },
+  { id: 'class-5', category: 'Classes and Workshops', url: galleryClass5 },
+  { id: 'class-6', category: 'Classes and Workshops', url: galleryClass6 },
+  { id: 'class-7', category: 'Classes and Workshops', url: galleryClass7 },
+  { id: 'class-8', category: 'Classes and Workshops', url: galleryClass8 },
+  { id: 'class-9', category: 'Classes and Workshops', url: galleryClass9 },
+  { id: 'class-10', category: 'Classes and Workshops', url: galleryClass10 },
+  { id: 'class-11', category: 'Classes and Workshops', url: galleryClass11 },
 
   // Discussions and Youth Project
-  { id: 'disc-1', category: 'Discussions and Youth Project', url: galleryDisc1, title: 'Collaborative Design' },
-  { id: 'disc-2', category: 'Discussions and Youth Project', url: galleryDisc2, title: 'Project Presentation' },
-  { id: 'disc-3', category: 'Discussions and Youth Project', url: galleryDisc3, title: 'Critical Thinking Circles' },
-  { id: 'disc-4', category: 'Discussions and Youth Project', url: galleryDisc4, title: 'Collaborative Design' },
-  { id: 'disc-5', category: 'Discussions and Youth Project', url: galleryDisc5, title: 'Collaborative Design' },
-  { id: 'disc-6', category: 'Discussions and Youth Project', url: galleryDisc6, title: 'Collaborative Design' },
-  { id: 'disc-7', category: 'Discussions and Youth Project', url: galleryDisc7, title: 'Collaborative Design' },
-  { id: 'disc-8', category: 'Discussions and Youth Project', url: galleryDisc8, title: 'Collaborative Design' },
+  { id: 'disc-1', category: 'Discussions and Youth Project', url: galleryDisc1 },
+  { id: 'disc-2', category: 'Discussions and Youth Project', url: galleryDisc2 },
+  { id: 'disc-3', category: 'Discussions and Youth Project', url: galleryDisc3 },
+  { id: 'disc-4', category: 'Discussions and Youth Project', url: galleryDisc4 },
+  { id: 'disc-5', category: 'Discussions and Youth Project', url: galleryDisc5 },
+  { id: 'disc-6', category: 'Discussions and Youth Project', url: galleryDisc6 },
+  { id: 'disc-7', category: 'Discussions and Youth Project', url: galleryDisc7 },
+  { id: 'disc-8', category: 'Discussions and Youth Project', url: galleryDisc8 },
 
   // Visits to Scholars
-  { id: 'schol-1', category: 'Visits to Scholars', url: gallerySchol1, title: 'Session with Marja' },
-  { id: 'schol-2', category: 'Visits to Scholars', url: gallerySchol2, title: 'Ayatullah Tahriri Visit' },
-  { id: 'schol-3', category: 'Visits to Scholars', url: gallerySchol3, title: 'Spiritual Advice' },
-  { id: 'schol-4', category: 'Visits to Scholars', url: gallerySchol4, title: 'Session with Marja' },
-  { id: 'schol-5', category: 'Visits to Scholars', url: gallerySchol5, title: 'Session with Marja' },
-  { id: 'schol-6', category: 'Visits to Scholars', url: gallerySchol6, title: 'Session with Marja' },
-  { id: 'schol-7', category: 'Visits to Scholars', url: gallerySchol7, title: 'Session with Marja' },
-  { id: 'schol-8', category: 'Visits to Scholars', url: gallerySchol8, title: 'Session with Marja' },
-  { id: 'schol-9', category: 'Visits to Scholars', url: gallerySchol9, title: 'Session with Marja' },
-  { id: 'schol-10', category: 'Visits to Scholars', url: gallerySchol10, title: 'Session with Marja' },
-  { id: 'schol-11', category: 'Visits to Scholars', url: gallerySchol11, title: 'Session with Marja' },
-  { id: 'schol-12', category: 'Visits to Scholars', url: gallerySchol12, title: 'Session with Marja' },
-  { id: 'schol-13', category: 'Visits to Scholars', url: gallerySchol13, title: 'Session with Marja' },
-  { id: 'schol-14', category: 'Visits to Scholars', url: gallerySchol14, title: 'Session with Marja' },
+  { id: 'schol-1', category: 'Visits to Scholars', url: gallerySchol1 },
+  { id: 'schol-2', category: 'Visits to Scholars', url: gallerySchol2 },
+  { id: 'schol-3', category: 'Visits to Scholars', url: gallerySchol3 },
+  { id: 'schol-4', category: 'Visits to Scholars', url: gallerySchol4 },
+  { id: 'schol-5', category: 'Visits to Scholars', url: gallerySchol5 },
+  { id: 'schol-6', category: 'Visits to Scholars', url: gallerySchol6 },
+  { id: 'schol-7', category: 'Visits to Scholars', url: gallerySchol7 },
+  { id: 'schol-8', category: 'Visits to Scholars', url: gallerySchol8 },
+  { id: 'schol-9', category: 'Visits to Scholars', url: gallerySchol9 },
+  { id: 'schol-10', category: 'Visits to Scholars', url: gallerySchol10 },
+  { id: 'schol-11', category: 'Visits to Scholars', url: gallerySchol11 },
+  { id: 'schol-12', category: 'Visits to Scholars', url: gallerySchol12 },
+  { id: 'schol-13', category: 'Visits to Scholars', url: gallerySchol13 },
+  { id: 'schol-14', category: 'Visits to Scholars', url: gallerySchol14 },
 
   // Spiritual Trips
-  
+  { id: 'spiritual-1', category: 'Spiritual Trips', url: gallerySpiritualTrip1 },
+  { id: 'spiritual-2', category: 'Spiritual Trips', url: gallerySpiritualTrip2 },
+  { id: 'spiritual-3', category: 'Spiritual Trips', url: gallerySpiritualTrip3 },
+  { id: 'spiritual-4', category: 'Spiritual Trips', url: gallerySpiritualTrip4 },
+  { id: 'spiritual-5', category: 'Spiritual Trips', url: gallerySpiritualTrip5 },
+  { id: 'spiritual-6', category: 'Spiritual Trips', url: gallerySpiritualTrip6 },
+  { id: 'spiritual-7', category: 'Spiritual Trips', url: gallerySpiritualTrip7 },
+  { id: 'spiritual-8', category: 'Spiritual Trips', url: gallerySpiritualTrip8 },
+  { id: 'spiritual-9', category: 'Spiritual Trips', url: gallerySpiritualTrip9 },
+  { id: 'spiritual-10', category: 'Spiritual Trips', url: gallerySpiritualTrip10 },
+  { id: 'spiritual-11', category: 'Spiritual Trips', url: gallerySpiritualTrip11 },
+  { id: 'spiritual-12', category: 'Spiritual Trips', url: gallerySpiritualTrip12 },
+  { id: 'spiritual-13', category: 'Spiritual Trips', url: gallerySpiritualTrip13 },
+  { id: 'spiritual-14', category: 'Spiritual Trips', url: gallerySpiritualTrip14 },
 
   // Educational Trips
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip1, title: 'Museum Exhibition' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip2, title: 'Museum Exhibition' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip3, title: 'Museum Exhibition' },
-  { id: 'edu-2', category: 'Educational Trips', url: galleryEduTrip4, title: 'Institute Visit' },
-  { id: 'edu-3', category: 'Educational Trips', url: galleryEduTrip5, title: 'Architectural Tour' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip6, title: 'Museum Exhibition' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip7, title: 'Museum Exhibition' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip8, title: 'Museum Exhibition' },
-  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip9, title: 'Museum Exhibition' },
-
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip1 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip2 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip3 },
+  { id: 'edu-2', category: 'Educational Trips', url: galleryEduTrip4 },
+  { id: 'edu-3', category: 'Educational Trips', url: galleryEduTrip5 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip6 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip7 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip8 },
+  { id: 'edu-1', category: 'Educational Trips', url: galleryEduTrip9 },
 
   // Sports and Leisure
-  { id: 'sport-1', category: 'Sports and Leisure', url: gallerySport1, title: 'Swimming Session' },
-  { id: 'sport-2', category: 'Sports and Leisure', url: gallerySport2, title: 'Outdoor BBQ' },
-  { id: 'sport-3', category: 'Sports and Leisure', url: gallerySport3, title: 'Waterfall Excursion'},
-  { id: 'sport-4', category: 'Sports and Leisure', url: gallerySport4, title: 'Swimming Session' },
-  { id: 'sport-5', category: 'Sports and Leisure', url: gallerySport5, title: 'Swimming Session' },
-  { id: 'sport-6', category: 'Sports and Leisure', url: gallerySport6, title: 'Swimming Session' },
-  { id: 'sport-7', category: 'Sports and Leisure', url: gallerySport7, title: 'Swimming Session' },
-  { id: 'sport-8', category: 'Sports and Leisure', url: gallerySport8, title: 'Swimming Session' },
-  { id: 'sport-9', category: 'Sports and Leisure', url: gallerySport9, title: 'Swimming Session' }, 
+  { id: 'sport-1', category: 'Sports and Leisure', url: gallerySport1 },
+  { id: 'sport-2', category: 'Sports and Leisure', url: gallerySport2 },
+  { id: 'sport-3', category: 'Sports and Leisure', url: gallerySport3 },
+  { id: 'sport-4', category: 'Sports and Leisure', url: gallerySport4 },
+  { id: 'sport-5', category: 'Sports and Leisure', url: gallerySport5 },
+  { id: 'sport-6', category: 'Sports and Leisure', url: gallerySport6 },
+  { id: 'sport-7', category: 'Sports and Leisure', url: gallerySport7 },
+  { id: 'sport-8', category: 'Sports and Leisure', url: gallerySport8 },
+  { id: 'sport-9', category: 'Sports and Leisure', url: gallerySport9 }, 
 ];
