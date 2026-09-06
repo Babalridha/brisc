@@ -181,8 +181,13 @@ const tabs = ['criteria', 'policies', 'reps', 'form'];
     });
   }
 
-  // Set default tab on load
-  switchTab('criteria');
+  // Set default tab on load or from hash
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.querySelector(`[data-apply-tab="${hash}"]`)) {
+    switchTab(hash);
+  } else {
+    switchTab('criteria');
+  }
 
   // Attach event listeners
   tabButtons.forEach((btn) => {
