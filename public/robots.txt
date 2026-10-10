@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brisc.babalridha.com/sitemap.xml
